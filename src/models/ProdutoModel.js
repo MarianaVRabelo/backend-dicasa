@@ -10,7 +10,7 @@ module.exports = {
         return produto_id;
     },
 
-    async getByID(produto_id){
+    async getById(produto_id) {
         const result = await connection("produto")      
             .where({ produto_id })
             .select("*")

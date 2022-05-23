@@ -10,7 +10,7 @@ module.exports = {
         return user_id;
     },
 
-    async getByID(user_id){
+    async getById (user_id){
         const result = await connection("user")
             .where({ user_id })
             .select("*")
@@ -24,6 +24,7 @@ module.exports = {
         .update(user);
         return result;
     },
+    
     async deleteById(user_id) {
         const result = await connection("user").where({ user_id }).delete();
         return result;
