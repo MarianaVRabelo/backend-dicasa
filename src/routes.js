@@ -1,21 +1,22 @@
 const express = require('express');
 const routes = express.Router();
 
+const UserValidator=require("./validators/UserValidator")
 const UserController = require("./controllers/UserController");
 const ProdutoController = require("./controllers/ProdutoController");
+const ProdutoValidator=require("./validators/ProdutoValidator")
 const ProdutoUserController = require("./controllers/ProdutoUserController");
-
 // Users
-routes.get("/users/:user_id", UserController.getById);
-routes.post("/users", UserController.create);
-routes.put("/users/:user_id", UserController.update);
-routes.delete("/users/:user_id", UserController.delete);
+routes.get("/users/:user_id", UserValidator.getById, UserController.getById);
+routes.post("/users", UserValidator.create, UserController.create);
+routes.put("/users/:user_id",UserValidator.update, UserController.update);
+routes.delete("/users/:user_id", UserValidator.delete, UserController.delete);
 
 // Produto
-routes.get("/produto/:produto_id", ProdutoController.getById);
-routes.post("/produto", ProdutoController.create);
-routes.put("/produto/:produto_id", ProdutoController.update);
-routes.delete("/produto/:produto_id", ProdutoController.delete);
+routes.get("/produto/:produto_id",ProdutoValidator.getById, ProdutoController.getById);
+routes.post("/produto", ProdutoValidator.create, ProdutoController.create);
+routes.put("/produto/:produto_id",ProdutoValidator.update, ProdutoController.update);
+routes.delete("/produto/:produto_id",ProdutoValidator.delete, ProdutoController.delete);
 
 //ProfutoUser
 routes.get("/produtouser/:user_id", ProdutoUserController.getById);

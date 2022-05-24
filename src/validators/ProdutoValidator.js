@@ -11,15 +11,15 @@ module.exports = {
     }),
     getById: celebrate({
         [Segments.PARAMS]: Joi.object().keys({
-            produto_id: Joi.string().guild({version:["uuidv4"]}).required(),
+            produto_id: Joi.string().guid({version:["uuidv4"]}).required(),
         }), 
         [Segments.QUERY]: Joi.object().keys({
-            produto_id: Joi.string().guild({version:["uuidv4"]}).optional(),
+            produto_id: Joi.string().guid({version:["uuidv4"]}).optional(),
         }), 
     }), 
     update: celebrate({
         [Segments.PARAMS]: Joi.object().keys({
-            produto_id: Joi.string().guild({version:["uuidv4"]}).required(),
+            produto_id: Joi.string().guid({version:["uuidv4"]}).required(),
         }), 
 
     }),
@@ -31,7 +31,7 @@ module.exports = {
     }),
     delete: celebrate({
         [Segments.PARAMS]: Joi.object().keys({
-            produto_id: Joi.string().guild({version:["uuidv4"]}).required(),
+            produto_id: Joi.string().guid({version:["uuidv4"]}).required(),
         }), 
     }), 
 };
