@@ -1,6 +1,6 @@
 const ProdutoModel = require("../models/ProdutoModel");
 
-const notes = [
+const produtosDicasa = [
     {
         id: 1,
         src:"/images/Rectangle61.png",
@@ -93,11 +93,17 @@ module.exports = {
         }
     },
 
-    async getByID(request, response) {
+    async getById(request, response) {
         try {
-            
+            const { produto_id } = request.params;
+            const result = await Produto.getById(produto_id);
+
+            return response.status(200).json(result);
         } catch (error) {
-            
+            console.warn("Produto get failed:", error);
+
+            return response.status(500).json({
+                notification: "Internal server error while trying to get Produto"})
         }
     },
 
