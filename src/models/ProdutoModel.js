@@ -18,6 +18,12 @@ module.exports = {
         return result;
     },
 
+    async get() {
+        const result = await connection("produto")      
+            .select("*")
+        return result;
+    },
+
     async updateById(produto_id, produto) {
         const result = await connection("produto")
         .where({ produto_id })

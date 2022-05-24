@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/MarianaVRabelo/backend-dicasa#readme",
   "dependencies": {
+    "axios": "^0.27.2",
+    "celebrate": "^15.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "knex": "^2.0.0",

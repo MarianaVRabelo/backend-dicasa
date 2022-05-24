@@ -13,6 +13,7 @@ routes.put("/users/:user_id",UserValidator.update, UserController.update);
 routes.delete("/users/:user_id", UserValidator.delete, UserController.delete);
 
 // Produto
+routes.get("/produtosget", ProdutoController.get);
 routes.get("/produto/:produto_id",ProdutoValidator.getById, ProdutoController.getById);
 routes.post("/produto", ProdutoValidator.create, ProdutoController.create);
 routes.put("/produto/:produto_id",ProdutoValidator.update, ProdutoController.update);
