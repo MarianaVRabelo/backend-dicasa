@@ -20,7 +20,7 @@ module.exports = {
     async getById(request, response) {
         try {
             const { user_id } = request.params;
-            const result = await User.getById(user_id);
+            const result = await ProdutoUserModel.getById({user_id});
 
             return response.status(200).json(result);
         } catch (err) {
@@ -34,8 +34,8 @@ module.exports = {
 
     async delete(request, response) {
         try {
-            const { user_id } = request.params;
-            const result = await ProdutoUserModel.deleteById(user_id);
+            const { produto_id, user_id } = request.params;
+            const result = await ProdutoUserModel.deleteById({produto_id, user_id});
             
             if(result === 0)
                 return response.status(400).json({ notification: "user_id not found"})
