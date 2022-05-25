@@ -1,4 +1,4 @@
-const { celebrate, Segments , Joi} = require ('celebrate');
+const { celebrate, Segments , Joi} = require ("celebrate");
 
 
 module.exports = {
@@ -8,6 +8,7 @@ module.exports = {
             email: Joi.string().email().required(),
             endereço:Joi.string().required(),
             cidade: Joi.string().required(),
+            password: Joi.string().min(6).required(),
         }),
     }),
     getById: celebrate({
