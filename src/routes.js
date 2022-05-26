@@ -23,7 +23,8 @@ routes.delete("/produto/:produto_id",ProdutoValidator.delete, ProdutoController.
 
 //ProfutoUser
 routes.get("/produtouser/:user_id", ProdutoUserValidator.getById, ProdutoUserController.getById);
-routes.post("/produtouser",ProdutoUserValidator.create, ProdutoUserController.create);
+// routes.post("/produtouser",ProdutoUserValidator.create, ProdutoUserController.create);
+routes.post("/produtouser", ProdutoUserController.create);
 routes.delete("/produtouser/:produto_id/:user_id", ProdutoUserValidator.delete, ProdutoUserController.delete);
 
 module.exports = routes;
