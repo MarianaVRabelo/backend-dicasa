@@ -96,7 +96,7 @@ module.exports = {
     async getById(request, response) {
         try {
             const { produto_id } = request.params;
-            const result = await Produto.getById(produto_id);
+            const result = await ProdutoModel.getById(produto_id);
 
             return response.status(200).json(result);
         } catch (error) {
