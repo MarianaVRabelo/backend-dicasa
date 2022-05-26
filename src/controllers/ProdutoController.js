@@ -107,6 +107,20 @@ module.exports = {
         }
     },
 
+    async get(request, response) {
+        try {
+            const result = await ProdutoModel.get();
+
+            return response.status(200).json(result);
+        } catch (error) {
+            console.warn("Produtos get failed:", error);
+
+            return response.status(500).json({
+                notification: "Internal server error while trying to get Produtos"})
+        }
+    },
+
+
     async update(request, response) {
         try {
             const { produto_id } = request.params;
