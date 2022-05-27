@@ -1,11 +1,10 @@
 const express = require('express');
 const routes = express.Router();
 
-const ProdutoUserValidator=require("./validators/ProdutoUserValidator");
-const UserValidator=require("./validators/UserValidator");
+const UserValidator=require("./validators/UserValidator")
 const UserController = require("./controllers/UserController");
 const ProdutoController = require("./controllers/ProdutoController");
-const ProdutoValidator=require("./validators/ProdutoValidator");
+const ProdutoValidator=require("./validators/ProdutoValidator")
 const ProdutoUserController = require("./controllers/ProdutoUserController");
 const SessionController = require("./controllers/SessionController");
 
@@ -44,6 +43,7 @@ routes.get
 ProdutoValidator.getById,
 auth.authenticateToken,
 ProdutoController.getById);
+routes.get("/produtosget", ProdutoController.get);
 
 routes.post
 ("/produto",

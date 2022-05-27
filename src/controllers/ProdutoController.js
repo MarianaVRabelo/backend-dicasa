@@ -3,76 +3,76 @@ const ProdutoModel = require("../models/ProdutoModel");
 const produtosDicasa = [
     {
         id: 1,
-        src:"/images/Rectangle61.png",
-        title: "Combo Sanduíche + Suco",
-        description: "R$ 20,00",
+        "image":"/images/Rectangle61.png",
+        "titulo": "Combo Sanduíche + Suco",
+        "valor": "R$ 20,00",
         
     },
     {
         id: 2,
-        src:"/images/Rectangle30.png",
-        title: "Tapioca",
-        description: "R$ 10,00",
+        "image":"/images/Rectangle30.png",
+        "titulo": "Tapioca",
+        "valor": "R$ 10,00",
     },
     {
         id: 3,
-        src:"/images/Rectangle63.png",
-        title: "Crepioca",
-        description: "R$ 12,00",
+        "imagem":"/images/Rectangle63.png",
+        "titulo": "Crepioca",
+        "valor": "R$ 12,00",
     },
     {
         id: 4,
-        src:"/images/Rectangle64.png",
-        title: "Pastel Assado",
-        description: "R$ 9,00",
+        "imagem":"/images/Rectangle64.png",
+        "titulo": "Pastel Assado",
+        "valor": "R$ 9,00",
     },
     {
         id: 5,
-        src:"/images/Rectangle65.png",
-        title: "Sanduíche Natural",
-        description: "R$ 15,00",
+        "imagem":"/images/Rectangle65.png",
+        "titulo": "Sanduíche Natural",
+        "valor": "R$ 15,00",
     },
     {
         id: 6,
-        src:"/images/Rectangle66.png",
-        title: "Salada de Frutas",
-        description: "R$ 10,00",
+        "imagem":"/images/Rectangle66.png",
+        "titulo": "Salada de Frutas",
+        "valor": "R$ 10,00",
     },
     {
         id: 7,
-        src:"/images/Rectangle67.png",
-        title: "Salada Caesar",
-        description: "R$ 15,00",
+        "imagem":"/images/Rectangle67.png",
+        "titulo": "Salada Caesar",
+        "valor": "R$ 15,00",
     },
     {
         id: 8,
-        src:"/images/Rectangle68.png",
-        title: "Saalada Tropical",
-        description: "R$ 12,00",
+        "imagem":"/images/Rectangle68.png",
+        "titulo": "Saalada Tropical",
+        "valor": "R$ 12,00",
     },
     {
         id: 9,
-        src:"/images/Rectangle69.png",
-        title: "Omelete",
-        description: "R$ 13,50",
+        "imagem":"/images/Rectangle69.png",
+        "titulo": "Omelete",
+        "valor": "R$ 13,50",
     },
     {
         id: 10,
-        src:"/images/Rectangle70.png",
-        title: "Suco Verde",
-        description: "R$ 8,00",
+        "imagem":"/images/Rectangle70.png",
+        "titulo": "Suco Verde",
+        "valor": "R$ 8,00",
     },
     {
         id: 11,
-        src:"/images/Rectangle71.png",
-        title: "Suco Natural",
-        description: "R$ 6,00",
+        "imagem":"/images/Rectangle71.png",
+        "titulo": "Suco Natural",
+        "valor": "R$ 6,00",
     },
     {
         id: 12,
-        src:"/images/Rectangle72.png",
-        title: "Vitamina",
-        description: "R$ 9,00",
+        "imagem":"/images/Rectangle72.png",
+        "titulo": "Vitamina",
+        "valor": "R$ 9,00",
     },
 ]
 
@@ -96,7 +96,7 @@ module.exports = {
     async getById(request, response) {
         try {
             const { produto_id } = request.params;
-            const result = await Produto.getById(produto_id);
+            const result = await ProdutoModel.getById(produto_id);
 
             return response.status(200).json(result);
         } catch (error) {
@@ -106,6 +106,20 @@ module.exports = {
                 notification: "Internal server error while trying to get Produto"})
         }
     },
+
+    async get(request, response) {
+        try {
+            const result = await ProdutoModel.get();
+
+            return response.status(200).json(result);
+        } catch (error) {
+            console.warn("Produtos get failed:", error);
+
+            return response.status(500).json({
+                notification: "Internal server error while trying to get Produtos"})
+        }
+    },
+
 
     async update(request, response) {
         try {
